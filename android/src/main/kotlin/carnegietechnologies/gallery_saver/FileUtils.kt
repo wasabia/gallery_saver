@@ -365,10 +365,10 @@ internal object FileUtils {
                     val contentResolver = context.getContentResolver()
                     val selection = MediaStore.Images.Media._ID + "= ?"
                     var id = uri!!.getLastPathSegment()
-                    if (Build.VERSION.SDK_INT >= 19 && !TextUtils.isEmpty(id) && id.contains(":")) {
-                        id = id.split(":".toRegex()).dropLastWhile({ it.isEmpty() }).toTypedArray()[1]
+                    if (Build.VERSION.SDK_INT >= 19 && !TextUtils.isEmpty(id) && id!!.contains(":")) {
+                        id = id!!.split(":".toRegex()).dropLastWhile({ it.isEmpty() }).toTypedArray()[1]
                     }
-                    val selectionArgs = arrayOf<String>(id)
+                    val selectionArgs = arrayOf<String>(id!!)
                     cursor = contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection, selection, selectionArgs, null)
                     if (cursor!!.moveToFirst()) {
                         filePath = cursor!!.getString(0)

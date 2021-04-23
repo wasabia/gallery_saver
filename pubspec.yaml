@@ -10,9 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  path_provider: ^1.2.0
-  http: ^0.12.0+2
-  path: ^1.6.2
+  path_provider:
+  http: 
+  path:
 
 dev_dependencies:
   flutter_test:
